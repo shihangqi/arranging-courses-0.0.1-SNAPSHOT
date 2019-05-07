@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>课程排课系统后台</title>
+<script type="text/javascript" src="./javascript/jquery.min.js"></script>
+<link rel="stylesheet" href="layui/css/layui.css" media="all">
+<script type="text/javascript" src="./layui/layui.js"></script>
+<script>
+	/**
+	 * 页面初始化
+	 * */
+	$(document).ready(
+			function() {
+				$("#role").text(
+						localStorage.getItem("role") + ": "
+								+ localStorage.getItem("username"));
+				$("#loginout").click(function() {
+					localStorage.clear;
+					window.location = "./login.html";
+				})
+
+				$("#classroom").click(function() {
+					$("#main").attr("src", "classroom.html");
+				});
+				$("#user").click(function() {
+					$("#main").attr("src", "user.html");
+				});
+				$("#class").click(function() {
+					$("#main").attr("src", "class.html");
+				});
+				$("#teacher").click(function() {
+					$("#main").attr("src", "teacher.html");
+				});
+				$("#allocation").click(function() {
+					$("#main").attr("src", "allocation.html");
+				});
+				$("#course").click(function() {
+					$("#main").attr("src", "course.html");
+				});
+				$("#courseTeacher").click(function() {
+					$("#main").attr("src", "courseTeacher.html");
+				});
+
+				$("#addLimimt").click(function() {
+					$("#main").attr("src", "addLimimt.html");
+				});
+				$("#arrCourse").click(function() {
+					$("#main").attr("src", "arrCourse.html");
+				});
+				$("#updateCourse").click(function() {
+					$("#main").attr("src", "updateCourse.html");
+				});
+
+				$("#findArr").click(function() {
+					$("#main").attr("src", "findArr.html");
+				});
+
+				$("#findCourseTable").click(function() {
+					$("#main").attr("src", "courseTable.html");
+				});
+
+				$("#one").click(function() {
+					$("#main").attr("src", "findCourseTable.html");
+				});
+
+			});
+
+	/**
+	 *
+	 * */
+</script>
+
+</head>
+
+<body class="layui-layout-body">
+	<div class="layui-layout layui-layout-admin">
+		<div class="layui-header">
+			<div class="layui-logo">课程排课系统后台</div>
+			<!-- 头部区域（可配合layui已有的水平导航） -->
+			<!-- 头部区域（可配合layui已有的水平导航） -->
+			<ul class="layui-nav layui-layout-right">
+				<li class="layui-nav-item"><a id="role"></a></li>
+				<li class="layui-nav-item"><a id="loginout">退出</a></li>
+			</ul>
+
+
+		</div>
+
+		<div class="layui-side layui-bg-black">
+			<div class="layui-side-scroll">
+				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+				<ul class="layui-nav layui-nav-tree" lay-filter="test">
+					<li class="layui-nav-item"><a href="javascript:;" lay-id="7">
+							<i aria-hidden="true" class="fa fa-gears"></i> <cite>机房排课信息管理</cite>
+							<span class="layui-nav-more"></span>
+					</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a id="class" href="javascript:;"
+									data-url="pages/menu/menuList.html" lay-id="8"> <i
+									aria-hidden="true" class="fa fa-cog"></i> <cite>班级设置</cite></a>
+							</dd>
+						</dl>
+						<dl class="layui-nav-child">
+							<dd>
+								<a id="classroom" href="javascript:;"
+									data-url="pages/role/roleList.html" lay-id="12"><i
+									aria-hidden="true" class="fa fa-user-secret"></i><cite>教室设置</cite></a>
+							</dd>
+						</dl>
+						<dl class="layui-nav-child">
+							<dd>
+								<a id="course" href="javascript:;"
+									data-url="pages/role/roleList.html" lay-id="12"><i
+									aria-hidden="true" class="fa fa-user-secret"></i><cite>课程设置</cite></a>
+							</dd>
+						</dl>
+						<dl class="layui-nav-child">
+							<dd>
+								<a id="teacher" href="javascript:;"
+									data-url="pages/role/roleList.html" lay-id="12"><i
+									aria-hidden="true" class="fa fa-user-secret"></i><cite>教师设置</cite></a>
+							</dd>
+						</dl></li>
+
+					<li class="layui-nav-item"><a href="javascript:;"
+						lay-id="7"> <i aria-hidden="true" class="fa fa-gears"></i> <cite>排课管理</cite>
+					</a>
+					<dl class="layui-nav-child">
+							<dd>
+								<a id="allocation" href="javascript:;"
+									data-url="pages/role/roleList.html" lay-id="12"><i
+									aria-hidden="true" class="fa fa-user-secret"></i><cite>分配课程</cite></a>
+							</dd>
+						</dl>
+					<dl class="layui-nav-child">
+							<dd>
+								<a id="one" href="javascript:;"
+									data-url="pages/role/roleList.html" lay-id="12"><i
+									aria-hidden="true" class="fa fa-user-secret"></i><cite>排课</cite></a>
+							</dd>
+						</dl>
+					
+						</li>
+					<li class="layui-nav-item"><a href="javascript:;" lay-id="7">
+							<i aria-hidden="true" class="fa fa-gears"></i> <cite>机房信息查看</cite>
+					</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a id="arrCourse" href="javascript:;"
+									data-url="pages/role/roleList.html" lay-id="12"><i
+									aria-hidden="true" class="fa fa-user-secret"></i><cite>查看教师分课</cite></a>
+							</dd>
+						</dl>
+						<dl class="layui-nav-child">
+							<dd>
+								<a id="updateCourse" href="javascript:;"
+									data-url="pages/role/roleList.html" lay-id="12"><i
+									aria-hidden="true" class="fa fa-user-secret"></i><cite>查看空教室</cite></a>
+							</dd>
+						</dl>
+						<dl class="layui-nav-child">
+							<dd>
+								<a id="findCourseTable" href="javascript:;"
+									data-url="pages/role/roleList.html" lay-id="12"><i
+									aria-hidden="true" class="fa fa-user-secret"></i><cite>查看课表</cite></a>
+							</dd>
+						</dl></li>
+
+					<li class="layui-nav-item"><a id="user" href="javascript:;"
+						lay-id="7"> <i aria-hidden="true" class="fa fa-gears"></i> <cite>用户管理</cite>
+					</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="layui-body">
+			<!-- 内容主体区域 -->
+			<iframe id="main" src="welcome.html" name="main" width="100%"
+				height="100%" frameborder="0"></iframe>
+		</div>
+
+		<div class="layui-footer">
+			<!-- 底部固定区域 -->
+
+		</div>
+	</div>
+	<script>
+		var table;
+		layui.use([ 'table' ], function() {
+			//table = layui.table //表格
+
+		});
+	</script>
+	<script type="text/javascript" src="./javascript/jquery.min.js"></script>
+	<script type="text/javascript" src="./layui/layui.js"></script>
+	<script type="text/javascript" src="./javascript/index.js"></script>
+</body>
+
+</html>
